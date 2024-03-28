@@ -2,7 +2,7 @@ import cv2
 import time
 import torch
 
-path = '/home/van/Detta/infusion/yolov5/runs/train/exp2/weights/best.pt'
+path = '/yolov5/runs/train/exp2/weights/best.pt'
 model = torch.hub.load('Ultralytics/yolov5', 'custom', path=path, device='0')
 
 def detect_drops(frame):
@@ -65,7 +65,7 @@ def draw_stats_on_frame(frame, total_drops, average_duration):
 
 # Main program
 if __name__ == "__main__":
-    video_path = 'video/infus.mp4'
+    video_path = '../video/infus.mp4'
 
     total_drops = count_total_drops(video_path)
     drop_durations = duration_between_drops(video_path)
@@ -80,7 +80,7 @@ if __name__ == "__main__":
     frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     fps = int(cap.get(cv2.CAP_PROP_FPS))
 
-    output_path = 'Results/output.mp4'
+    output_path = '../Results/output.mp4'
     out = cv2.VideoWriter(output_path, cv2.VideoWriter_fourcc(*'mp4v'), fps, (frame_width, frame_height))
 
     while True:

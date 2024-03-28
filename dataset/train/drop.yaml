@@ -1,0 +1,8 @@
+# path: ./images/labels.txt
+train: D:\infusion\dataset\train\images
+val: ..
+test: ..
+
+nc: 1
+names: ['drop']
+
